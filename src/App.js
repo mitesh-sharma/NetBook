@@ -9,8 +9,6 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Alert  from './components/Alert';
 
-//comment added
-
 function App() {
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type)=>{
