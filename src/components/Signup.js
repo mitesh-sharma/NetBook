@@ -32,8 +32,8 @@ const Signup = (props) => {
     }
     return (
         <>
-        <div className='container w-25 border border-dark rounded'>
-            <h2 className='text-center mt-3 mb-5'><strong>Create new account</strong></h2>
+        <div className='container w-25 border border-dark rounded p-3'>
+            <h2 className='text-center mb-5'><strong>Create new account</strong></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group my-3">
                     <label htmlFor="exampleInputEmail1">Name</label>
