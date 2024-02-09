@@ -47,6 +47,9 @@ const Login = (props) => {
                 </div>
             </form>
         </div>
+        <div>
+            <p className='text-center'>Please note - Servers are slow, please wait for a moment after clicking on Login. This issue will be resolved. Thank you for your patience</p>
+        </div>
         </>
     )
 }
