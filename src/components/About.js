@@ -12,7 +12,7 @@ const About = () => {
           <li>Implemented the 4 CRUD Create, Read, Update, Delete functionalities, enabling users to seamlessly add, update, and delete the notes.</li>
         </ul>
       <p>This Project is built by Mitesh Sharma, a computer science undergrad at VIT Bhopal. The website uses ReactJs, Bootstrap, Express, Nodejs, MongoDB. It is a simple and minimalistic project and will be update with new features in the future.</p>
-      <p>Thank you for Using this website.</p>
+      <p>Thank you for Using Netbook.</p>
     </div>
   )
 }
