@@ -27,10 +27,16 @@ const Navbar = () => {
 
                         </ul>
 
-                        {!localStorage.getItem('token') ? <div className="d-flex text-align-center">
+                        {!localStorage.getItem('token') ? 
+                        <div className="d-flex text-align-center">
                             <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                             <Link className="btn btn-primary mx-1" to="/signup" role="button">New User</Link>
-                        </div> : <div className='d-flex'><button onClick={handleLogout} className="btn btn-primary mx-1">Logout</button></div>}
+                        </div>
+                        : 
+                        <div className='d-flex'>
+                            <button onClick={handleLogout} className="btn btn-primary mx-1">Logout</button>
+                        </div>
+                        }
                     </div>
                 </div>
             </nav>

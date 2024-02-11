@@ -33,6 +33,9 @@ const AddNote = (props) => {
                     <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={onChange} />
                 </div>
                 <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleCLick}>Add Note</button>
+                <p className='text-danger mx-3 d-inline'>
+                    {(note.title.length<5 || note.description.length<5) ? "Title and description length should be atleast 5 characters" : ""}
+                </p>
             </form>
         </div>
     )
