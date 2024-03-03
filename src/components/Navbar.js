@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
     let location = useLocation();
     let navigate = useNavigate();
     const handleLogout = () => {
@@ -26,7 +26,10 @@ const Navbar = () => {
                             </li>}
 
                         </ul>
-
+                    <div className="form-check form-switch pe-3 text-light">
+                        <input className="form-check-input" onClick = {props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode === 'light' ? 'dark' : 'light'} mode</label>
+                    </div>
                         {!localStorage.getItem('token') ? 
                         <div className="d-flex text-align-center">
                             <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
@@ -34,7 +37,7 @@ const Navbar = () => {
                         </div>
                         : 
                         <div className='d-flex'>
-                            <button onClick={handleLogout} className="btn btn-primary mx-1">Logout</button>
+                            <button onClick={handleLogout} className={`btn btn-${props.mode === 'light'? 'primary':'secondary'} mx-1`}>Logout</button>
                         </div>
                         }
                     </div>

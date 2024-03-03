@@ -35,7 +35,7 @@ const Notes = (props) => {
     }
     return (
         <>
-            <AddNote showAlert={props.showAlert}/>
+            <AddNote showAlert={props.showAlert} mode={props.mode}/>
             <button ref={ref} type="button" className="d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
@@ -43,7 +43,7 @@ const Notes = (props) => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Edit Note</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
@@ -70,11 +70,11 @@ const Notes = (props) => {
                 </div>
             </div>
             <div className='row my-3'>
-                <div className="container mx-2">
+                <div className={`container mx-2 text-${props.mode === 'light'? 'dark':'light'}`}>
                     {notes.length === 0 && 'No notes to display'}
                 </div>
                 {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} />;
+                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} mode ={props.mode}/>;
                 })}
             </div>
         </>

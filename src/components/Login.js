@@ -30,25 +30,25 @@ const Login = (props) => {
     }
     return (
         <>
-        <div className='container w-25 border border-dark rounded'>
-            <h2 className='text-center mt-3 mb-5'><strong>Login</strong></h2>
+        <div className={`container w-25 border border-${props.mode === 'light'? 'dark':'light'} rounded bg-${props.mode === 'light'? 'light':'dark'}`}>
+            <h2 className={`text-center mt-3 mb-5 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Login</strong></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group my-3">
-                    <label htmlFor="email">Email address</label>
+                    <label htmlFor="email" className={`text-${props.mode === 'light'? 'dark':'light'}`}>Email address</label>
                     <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" />
-                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" className="form-text text-secondary">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group my-3">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password"className={`text-${props.mode === 'light'? 'dark':'light'}`}>Password</label>
                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} id="password" name="password" placeholder="Password" />
                 </div>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-primary my-3 w-100">Login</button>
+                    <button type="submit" className={`btn btn-${props.mode === 'light'? 'primary':'secondary'} w-100 my-3`}>Login</button>
                 </div>
             </form>
         </div>
         <div>
-            <p className='text-center'>Please note - Servers might be slow, please wait if there is no response after clicking on Login button. Thank you for your patience.</p>
+            <p className={`text-center mt-3 mb-5 text-${props.mode === 'light'? 'dark':'light'}`}>Please note - Servers might be slow, please wait if there is no response after clicking on Login button. Thank you for your patience.</p>
         </div>
         </>
     )

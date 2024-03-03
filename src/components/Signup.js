@@ -32,33 +32,29 @@ const Signup = (props) => {
     }
     return (
         <>
-        <div className='container w-25 border border-dark rounded p-3'>
-            <h2 className='text-center mb-5'><strong>Create new account</strong></h2>
+        <div className={`bg-${props.mode === 'light'? 'light':'dark'} container w-25 border border-${props.mode === 'light'? 'dark':'light'} rounded p-3`}>
+            <h2 className={`text-center mb-5 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Create new account</strong></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group my-3">
-                    <label htmlFor="exampleInputEmail1">Name</label>
+                    <label htmlFor="exampleInputEmail1" className={`text-${props.mode === 'light'? 'dark':'light'}`}>Name</label>
                     <input type="text" className="form-control" id="name" name = "name" onChange={onChange} aria-describedby="emailHelp" placeholder="Enter name" />
                 </div>
                 <div className="form-group my-3 ">
-                    <label htmlFor="email">Email address</label>
+                    <label htmlFor="email" className={`text-${props.mode === 'light'? 'dark':'light'}`}>Email address</label>
                     <input type="email" className="form-control" id="email" name = "email" onChange={onChange} aria-describedby="emailHelp" placeholder="Enter email" />
-                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" className="form-text text-secondary">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group my-3 ">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className={`text-${props.mode === 'light'? 'dark':'light'}`}>Password</label>
                     <input type="password" className="form-control" id="password" name = "password" onChange={onChange} placeholder="Password" required minLength={5} />
                 </div>
-                <div className="form-group my-3">
-                    <label htmlFor="cpassword">Confirm Password</label>
-                    <input type="password" className="form-control" id="cpassword" name = "cpassword" onChange={onChange} placeholder="Password" required minLength={5} />
-                </div>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-primary w-100">Submit</button>
+                    <button type="submit" className={`btn btn-${props.mode === 'light'? 'primary':'secondary'} w-100 mt-2`}>Submit</button>
                 </div>
             </form>
         </div>
         <div>
-            <p className='text-center'>Please note - Servers might be slow, please wait if there is no response after clicking on Submit button. Thank you for your patience.</p>
+            <p className={`mt-2 text-center text-${props.mode === 'light'? 'dark':'light'}`}>Please note - Servers might be slow, please wait if there is no response after clicking on Submit button. Thank you for your patience.</p>
         </div>
         </>
     )
