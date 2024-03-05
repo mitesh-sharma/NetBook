@@ -40,6 +40,7 @@ const NoteState = (props) => {
     //Delete a Note
     const deleteNote = async (id)=>{
         //TODO: API call
+        // eslint-disable-next-line
         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
             method: "DELETE",
             headers: {
@@ -61,6 +62,7 @@ const NoteState = (props) => {
             },
             body: JSON.stringify({title, description, tag})
           });
+          // eslint-disable-next-line
           const json = await response.json();
         //Logic to edit in client
         let newNotes = JSON.parse(JSON.stringify(notes));
