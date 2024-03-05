@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
+import Spinner from './loader'
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({name:"", email:"", password:"", cpassword:""});
+    const [load, setLoad] = useState(false);
     let navigate = useNavigate();
     const handleSubmit = async (e)=>{
         e.preventDefault();
+        setLoad(true);
         const {name, email, password} = credentials;
         const response = await fetch("https://netbook-backend.onrender.com/api/auth/createuser", {
             method: "POST",
@@ -16,7 +19,7 @@ const Signup = (props) => {
         });
         const json = await response.json()
         console.log(json)
-
+        setLoad(false);
         if(json.success){
             //save the authtoken and redirect
             localStorage.setItem('token', json.authToken);
@@ -33,7 +36,7 @@ const Signup = (props) => {
     return (
         <>
         <div className={`bg-${props.mode === 'light'? 'light':'dark'} container w-25 border border-${props.mode === 'light'? 'dark':'light'} rounded p-3`}>
-            <h2 className={`text-center mb-5 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Create new account</strong></h2>
+            <h2 className={`text-center mb-4 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Create new account</strong></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group my-3">
                     <label htmlFor="exampleInputEmail1" className={`text-${props.mode === 'light'? 'dark':'light'}`}>Name</label>
@@ -53,8 +56,8 @@ const Signup = (props) => {
                 </div>
             </form>
         </div>
-        <div>
-            <p className={`mt-2 text-center text-${props.mode === 'light'? 'dark':'light'}`}>Please note - Servers might be slow, please wait if there is no response after clicking on Submit button. Thank you for your patience.</p>
+        <div className='text-center'>
+            {load ? <Spinner /> :  ""}
         </div>
         </>
     )

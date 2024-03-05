@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
+import Spinner from './loader'
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email:"", password:""});
+    const [load, setLoad] = useState(false);
     const navigate = useNavigate();
     const handleSubmit = async (e)=>{
         e.preventDefault();
+        setLoad(true);
         const response = await fetch("https://netbook-backend.onrender.com/api/auth/login", {
             method: "POST",
             headers: {
@@ -14,7 +17,7 @@ const Login = (props) => {
             body: JSON.stringify({email: credentials.email, password: credentials.password}),
         });
         const json = await response.json()
-
+        setLoad(false);
         if(json.success){
             //save the authtoken and redirect
             localStorage.setItem('token', json.authToken);
@@ -24,6 +27,7 @@ const Login = (props) => {
         else{
             props.showAlert("Invalid Credentials", "danger");
         }
+
     }
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
@@ -47,8 +51,8 @@ const Login = (props) => {
                 </div>
             </form>
         </div>
-        <div>
-            <p className={`text-center mt-3 mb-5 text-${props.mode === 'light'? 'dark':'light'}`}>Please note - Servers might be slow, please wait if there is no response after clicking on Login button. Thank you for your patience.</p>
+        <div className='text-center'>
+            {load ? <Spinner /> :  ""}
         </div>
         </>
     )
