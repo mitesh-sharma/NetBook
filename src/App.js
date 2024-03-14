@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -21,6 +21,12 @@ function App() {
       document.body.style.backgroundColor = 'white';
     }
   }
+
+  useEffect(() => {
+    toggleMode();
+    // eslint-disable-next-line
+  }, []);
+  
   const showAlert = (message, type)=>{
     setAlert({
       msg : message,

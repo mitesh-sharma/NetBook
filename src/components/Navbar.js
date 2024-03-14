@@ -26,19 +26,19 @@ const Navbar = (props) => {
                             </li>}
 
                         </ul>
-                    <div className="form-check form-switch pe-3 text-light">
-                        <input className="form-check-input" onClick = {props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode === 'light' ? 'dark' : 'light'} mode</label>
-                    </div>
-                        {!localStorage.getItem('token') ? 
-                        <div className="d-flex text-align-center">
-                            <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                            <Link className="btn btn-primary mx-1" to="/signup" role="button">New User</Link>
+                        <div className="form-check form-switch text-light bg-secondary ps-5 pe-3 py-1 mx-2 rounded">
+                            <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode === 'light' ? 'Dark' : 'Light'} Mode</label>
                         </div>
-                        : 
-                        <div className='d-flex'>
-                            <button onClick={handleLogout} className={`btn btn-${props.mode === 'light'? 'primary':'secondary'} mx-1`}>Logout</button>
-                        </div>
+                        {!localStorage.getItem('token') ?
+                            <div className="d-flex text-align-center">
+                                <Link className="btn btn-primary mx-2" to="/login" role="button">Login</Link>
+                                <Link className="btn btn-primary mx-2" to="/signup" role="button">New User</Link>
+                            </div>
+                            :
+                            <div className='d-flex'>
+                                <button onClick={handleLogout} className={`btn btn-${props.mode === 'light' ? 'primary' : 'secondary'} mx-2`}>Logout</button>
+                            </div>
                         }
                     </div>
                 </div>

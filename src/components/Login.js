@@ -34,7 +34,7 @@ const Login = (props) => {
     }
     return (
         <>
-        <div className={`container w-25 border border-${props.mode === 'light'? 'dark':'light'} rounded bg-${props.mode === 'light'? 'light':'dark'}`}>
+        <div className={`container col-lg-4 col-md-6 col-sm-8 border border-${props.mode === 'light' ? 'dark' : 'light'} rounded bg-${props.mode === 'light' ? 'light' : 'dark'} mx-auto`}>
             <h2 className={`text-center mt-3 mb-5 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Login</strong></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group my-3">

@@ -35,8 +35,8 @@ const Signup = (props) => {
     }
     return (
         <>
-        <div className={`bg-${props.mode === 'light'? 'light':'dark'} container w-25 border border-${props.mode === 'light'? 'dark':'light'} rounded p-3`}>
-            <h2 className={`text-center mb-4 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Create new account</strong></h2>
+        <div className={`container col-lg-4 col-md-6 col-sm-8 border border-${props.mode === 'light' ? 'dark' : 'light'} rounded bg-${props.mode === 'light' ? 'light' : 'dark'} mx-auto`}>
+            <h2 className={`text-center mt-3 mb-5 text-${props.mode === 'light'? 'dark':'light'}`}><strong>Create new account</strong></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group my-3">
                     <label htmlFor="exampleInputEmail1" className={`text-${props.mode === 'light'? 'dark':'light'}`}>Name</label>
@@ -52,7 +52,7 @@ const Signup = (props) => {
                     <input type="password" className="form-control" id="password" name = "password" onChange={onChange} placeholder="Password" required minLength={5} />
                 </div>
                 <div className="text-center">
-                    <button type="submit" className={`btn btn-${props.mode === 'light'? 'primary':'secondary'} w-100 mt-2`}>Submit</button>
+                    <button type="submit" className={`btn btn-${props.mode === 'light'? 'primary':'secondary'} w-100 my-3`}>Submit</button>
                 </div>
             </form>
         </div>
